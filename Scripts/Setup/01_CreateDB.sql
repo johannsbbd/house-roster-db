@@ -60,7 +60,7 @@ ADD CONSTRAINT UniqueTaskDay UNIQUE (TaskId, TaskDay);
 -- Work
 CREATE TABLE Work (
 	Id int IDENTITY(1,1) PRIMARY KEY,
-	WorkStatus VARCHAR(20) NOT NULL CHECK(WorkStatus IN('TODO', 'IN_PROGRESS', 'DONE')),
+	WorkStatus VARCHAR(20) NOT NULL CHECK(WorkStatus IN('TODO', 'DONE', 'FAILED')),
 	DueDate Date NOT NULL,
 	DoneDate Date NULL,
 	AssigneeId int FOREIGN KEY REFERENCES Person(Id),
