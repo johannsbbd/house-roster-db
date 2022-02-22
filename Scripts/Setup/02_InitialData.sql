@@ -63,7 +63,7 @@ VALUES    ('Kitchen', 1), --1
     ('Kids room', 2), --8
     ('Kitchen', 2), --9
     ('Lounge', 2), --10
-    ('Bathroom', 2), --11
+    ('Bathroom', 2) --11
 GO
 
 -- Insert into task table
@@ -75,7 +75,7 @@ VALUES    (1,'mop the floors'), --1
     (2,'Vaccum the couches'), --2
     (3,'Wipe the mirror'), --3
     (5, 'Put away toys'), --4
-    (6, 'fold clothes') --5
+    (6, 'fold clothes'), --5
     (7,'just collect the laundry'), --6
     (8,'fold blankets please'), --7
     (9,'use one pod for the dishwasher!'), --8
@@ -101,5 +101,26 @@ VALUES    (1, 3, 3, 'DONE', '2022-02-12', '2022-02-12'),
     (6, 7, 7, 'DONE', '2022-02-13', '2022-02-13'),
     (9, 7, 8, 'DONE', '2022-02-15', '2022-02-16'),
     (11, 8, NULL, 'FAILED', '2022-02-03', NULL),
-    (10, 9, NULL, 'TODO', '2022-03-20', NULL),
+    (10, 9, NULL, 'TODO', '2022-03-20', NULL)
+GO
+
+-- Insert into task day table
+INSERT INTO TaskDay
+           (TaskId
+           ,TaskDay
+           )
+VALUES    (1,'Monday'), --1
+    (2,'Tuesday'), --2
+    (2,'Wednesday'), --3
+    (5, 'Wednesday'), --4
+    (6, 'Thursday'), --5
+    (7,'Sunday'), --6
+    (8,'Saturday'), --7
+    (9,'Friday'), --8
+    (10, 'Monday'), --9
+    (11, 'Sunday') --10
+    (3,'Saturday'), --11
+    (8,'Friday'), --12
+    (6, 'Monday'), --13
+    (4, 'Sunday') --14
 GO
