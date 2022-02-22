@@ -1,4 +1,4 @@
-CREATE VIEW FailedTask AS 
+CREATE VIEW CompletedTask AS 
 SELECT Person.FirstName, 
 	   Person.LastName, 
 	   Room.RoomName,
@@ -12,8 +12,8 @@ JOIN Task
 ON Task.Id = Work.TaskId
 JOIN Room
 ON Room.Id = Task.RoomId
-WHERE WorkStatus = 'FAILED';
+WHERE WorkStatus = 'DONE';
 
 GO 
 
-Select * from FailedTask;
+Select * from CompletedTask;
