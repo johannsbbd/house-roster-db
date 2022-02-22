@@ -14,7 +14,7 @@ GO
 INSERT INTO Person
            (FirstName
            ,LastName
-           ,PersonType varchar GUARDIAN / NORMAL
+           ,PersonType
            ,HouseId
            ) 
 VALUES    ('Thandile','May','GUARDIAN',1), 
