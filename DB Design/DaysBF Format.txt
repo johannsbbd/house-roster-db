@@ -1,0 +1,15 @@
+DaysBF Format:
+
+[01] 0 0 0 0 0 0 1 = Monday
+[02] 0 0 0 0 0 1 0 = Tuesday
+[04] 0 0 0 0 1 0 0 = Wednesday
+[08] 0 0 0 1 0 0 0 = Thursday
+[16] 0 0 1 0 0 0 0 = Friday
+[32] 0 1 0 0 0 0 0 = Saturday
+[64] 1 0 0 0 0 0 0 = Sunday
+
+
+Example:
+
+[67] 0 1 0 0 0 1 1 = Monday, Tuesday, Saturday
+[72] 1 0 0 1 0 0 0 = Thursday, Sunday
