@@ -1,5 +1,5 @@
 -- Insert into house table
-INSERT INTO House
+INSERT INTO HouseRoster.dbo.House
            (HouseName
            )
 VALUES    ('The Mays'), 
@@ -11,7 +11,7 @@ VALUES    ('The Mays'),
 GO
 
 -- Insert into person table
-INSERT INTO Person
+INSERT INTO HouseRoster.dbo.Person
            (FirstName
            ,LastName
            ,PersonType
@@ -50,7 +50,7 @@ VALUES    ('Thandile','May','GUARDIAN', 0, 1),
 GO
 
 -- Insert into room table
-INSERT INTO Room
+INSERT INTO HouseRoster.dbo.Room
            (RoomName
            ,HouseId
            )
@@ -68,7 +68,7 @@ VALUES    ('Kitchen', 1),
 GO
 
 -- Insert into task table 
-INSERT INTO Task
+INSERT INTO HouseRoster.dbo.Task
            (RoomId
            ,TaskDesc
            ,DaysBF
@@ -86,7 +86,7 @@ VALUES    (1,'mop the floors', 9),
 GO
 
 -- Insert into work  table
-INSERT INTO Work
+INSERT INTO HouseRoster.dbo.Work
            (TaskId
            ,AssigneeId
            ,WorkDoneById
