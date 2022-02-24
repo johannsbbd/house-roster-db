@@ -53,7 +53,7 @@ CREATE TABLE Work (
 	Id int IDENTITY(1,1) PRIMARY KEY,
 	DueDate Date NOT NULL,
 	DoneDate Date NULL,
-	AssigneeId int FOREIGN KEY REFERENCES Person(Id),
-	WorkDoneById int FOREIGN KEY REFERENCES Person(Id),
-	TaskId int FOREIGN KEY REFERENCES Task(Id)
+	AssigneeId int FOREIGN KEY REFERENCES Person(Id) NOT NULL,
+	WorkDoneById int FOREIGN KEY REFERENCES Person(Id) NULL,
+	TaskId int FOREIGN KEY REFERENCES Task(Id) NOT NULL
 );
