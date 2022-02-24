@@ -10,7 +10,7 @@ from pathlib import Path
 outputFile = 'setupdb.sql'
 
 def compileDump():    
-    fileDirs = ['./Setup', './Views', './Functions', './StoredProc']
+    fileDirs = ['./Setup', './Functions', './Views', './StoredProc']
     with open(outputFile, 'w+') as outfile:
         for directory in fileDirs:
             for path in Path(directory).glob('**/*.sql'):
