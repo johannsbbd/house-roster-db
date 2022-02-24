@@ -42,25 +42,14 @@ GO
 CREATE TABLE Task (
 	Id int IDENTITY(1,1) PRIMARY KEY,
 	TaskDesc VARCHAR(500) NOT NULL,
-	RoomId int FOREIGN KEY REFERENCES Room(Id) NOT NULL
+	RoomId int FOREIGN KEY REFERENCES Room(Id) NOT NULL,
+	DaysBF int NOT NULL CHECK (DaysBF > 0)
 );
 GO
-
--- Task Days
-CREATE TABLE TaskDay (
-	Id int IDENTITY(1,1) PRIMARY KEY,
-	TaskDay VARCHAR(10) NOT NULL CHECK(TaskDay IN('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')),
-	TaskId int FOREIGN KEY REFERENCES Task(Id)
-);
-GO
-
-ALTER TABLE TaskDay
-ADD CONSTRAINT UniqueTaskDay UNIQUE (TaskId, TaskDay);
 
 -- Work
 CREATE TABLE Work (
 	Id int IDENTITY(1,1) PRIMARY KEY,
-	WorkStatus VARCHAR(20) NOT NULL CHECK(WorkStatus IN('TODO', 'FAILED', 'DONE')),
 	DueDate Date NOT NULL,
 	DoneDate Date NULL,
 	AssigneeId int FOREIGN KEY REFERENCES Person(Id),
