@@ -14,4 +14,4 @@ ON Task.Id = Work.TaskId
 JOIN Room
 ON Room.Id = Task.RoomId
 
-GO 
+GO
