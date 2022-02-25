@@ -8,13 +8,13 @@ CREATE FUNCTION udfFetchUserTasks(@PersonID int)
 RETURNS TABLE AS
   RETURN SELECT 
     p.FirstName,
-	p.LastName,
-	p.PersonType,
-	p.Available,
-	Task.TaskDesc AS [Description],
-	Room.RoomName,
-	w.DueDate,
-	w.DoneDate,
+    p.LastName,
+    p.PersonType,
+    p.Available,
+    Task.TaskDesc AS [Description],
+    Room.RoomName,
+    w.DueDate,
+    w.DoneDate,
 	CompletedBy.FirstName + ' ' + CompletedBy.LastName AS Completed
   FROM Person AS p
   INNER JOIN Work AS w ON w.AssigneeId = p.Id
@@ -23,5 +23,3 @@ RETURNS TABLE AS
   RIGHT JOIN Person AS CompletedBy ON w.WorkDoneById = CompletedBy.Id
   WHERE p.Id = @PersonID
 GO
-
-SELECT * FROM udfFetchUserTasks(5)
