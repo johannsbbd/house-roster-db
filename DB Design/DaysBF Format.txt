@@ -13,3 +13,25 @@ Example:
 
 [67] 0 1 0 0 0 1 1 = Monday, Tuesday, Saturday
 [72] 1 0 0 1 0 0 0 = Thursday, Sunday
+
+
+Example construction - Thursday AND Sunday
+
+   0 0 0 1 0 0 0 - Thursday
+|| 1 0 0 0 0 0 0 - Sunday
+=  1 0 0 1 0 0 0 - Thursday AND Sunday
+
+
+Example extraction:
+
+   1 0 0 1 0 0 0 - DaysBF
+&& 1 0 0 0 0 0 0 - Sunday
+=  1 0 0 0 0 0 0 - Sunday
+
+   1 0 0 1 0 0 0 - DaysBF
+&& 0 0 0 1 0 0 0 - Thursday
+=  0 0 0 1 0 0 0 - Thursday
+
+   1 0 0 1 0 0 0 - DaysBF
+&& 0 0 0 0 0 0 1 - Monday
+=  0 0 0 0 0 0 0 - None

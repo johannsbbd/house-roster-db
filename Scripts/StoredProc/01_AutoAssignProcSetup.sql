@@ -19,20 +19,23 @@ BEGIN
 
 	-- Insert work items without assignee into Work table
 	INSERT INTO Work (TaskId, DueDate)
+
 	(SELECT TaskId, DueDate FROM (
-		SELECT Id AS TaskId, RoomId, dbo.udfGetDateFromBF(@StartOfWeekDate, 1) AS DueDate FROM Task WHERE (DaysBF & 1) = 1
+
+		SELECT Id AS TaskId, RoomId, dbo.udfGetDateFromBF(@StartOfWeekDate, 1) AS DueDate FROM Task WHERE (DaysBF & 1) = 1 -- Monday
 		UNION ALL
-		SELECT Id AS TaskId, RoomId, dbo.udfGetDateFromBF(@StartOfWeekDate, 2) AS DueDate FROM Task WHERE (DaysBF & 2) = 2
+		SELECT Id AS TaskId, RoomId, dbo.udfGetDateFromBF(@StartOfWeekDate, 2) AS DueDate FROM Task WHERE (DaysBF & 2) = 2 -- Tuesday
 		UNION ALL
-		SELECT Id AS TaskId, RoomId, dbo.udfGetDateFromBF(@StartOfWeekDate, 4) AS DueDate FROM Task WHERE (DaysBF & 4) = 4
+		SELECT Id AS TaskId, RoomId, dbo.udfGetDateFromBF(@StartOfWeekDate, 4) AS DueDate FROM Task WHERE (DaysBF & 4) = 4 -- Wednesday
 		UNION ALL
-		SELECT Id AS TaskId, RoomId, dbo.udfGetDateFromBF(@StartOfWeekDate, 8) AS DueDate FROM Task WHERE (DaysBF & 8) = 8
+		SELECT Id AS TaskId, RoomId, dbo.udfGetDateFromBF(@StartOfWeekDate, 8) AS DueDate FROM Task WHERE (DaysBF & 8) = 8 -- Thursday
 		UNION ALL
-		SELECT Id AS TaskId, RoomId, dbo.udfGetDateFromBF(@StartOfWeekDate, 16) AS DueDate FROM Task WHERE (DaysBF & 16) = 16
+		SELECT Id AS TaskId, RoomId, dbo.udfGetDateFromBF(@StartOfWeekDate, 16) AS DueDate FROM Task WHERE (DaysBF & 16) = 16 -- Friday
 		UNION ALL
-		SELECT Id AS TaskId, RoomId, dbo.udfGetDateFromBF(@StartOfWeekDate, 32) AS DueDate FROM Task WHERE (DaysBF & 32) = 32
+		SELECT Id AS TaskId, RoomId, dbo.udfGetDateFromBF(@StartOfWeekDate, 32) AS DueDate FROM Task WHERE (DaysBF & 32) = 32 -- Saturday
 		UNION ALL
-		SELECT Id AS TaskId, RoomId, dbo.udfGetDateFromBF(@StartOfWeekDate, 64) AS DueDate FROM Task WHERE (DaysBF & 64) = 64
+		SELECT Id AS TaskId, RoomId, dbo.udfGetDateFromBF(@StartOfWeekDate, 64) AS DueDate FROM Task WHERE (DaysBF & 64) = 64 -- Sunday
+
 	) AS X
 	WHERE RoomId IN (SELECT Id FROM Room WHERE HouseId = @HouseId));
 

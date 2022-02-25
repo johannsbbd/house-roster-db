@@ -8,11 +8,17 @@ SELECT
   @Status = CASE
     WHEN @Now > @DueDate
     AND @DoneDate is null THEN 'FAILED'
+
     WHEN @Now <= @DueDate
     AND @DoneDate is null THEN 'TODO'
+
     WHEN @DoneDate is not null
     and @DoneDate <= @DueDate THEN 'COMPLETE'
-    ELSE 'LATE'
+
+    WHEN @DoneDate is not null
+    and @DoneDate > @DueDate THEN 'LATE'
+    
+    ELSE 'N/A'
   END RETURN @Status
 END
 
