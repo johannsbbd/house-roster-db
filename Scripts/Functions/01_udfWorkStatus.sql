@@ -1,7 +1,13 @@
-CREATE FUNCTION udfWorkStatus (@DueDate date, @DoneDate date) RETURNS varchar(10) 
-AS BEGIN 
-DECLARE @Status varchar(10) 
-DECLARE @Now date
+USE [HouseRoster]
+GO
+  /****** Object: UserDefinedFunction [dbo].[udfWorkStatus] Script Date: 2022/02/24 12:42:53 ******/
+SET
+  ANSI_NULLS ON
+GO
+SET
+  QUOTED_IDENTIFIER ON
+GO
+  ALTER FUNCTION [dbo].[udfWorkStatus] (@DueDate date, @DoneDate date) RETURNS varchar(10) AS BEGIN DECLARE @Status varchar(10) DECLARE @Now date
 set
   @Now = GETDATE()
 SELECT
@@ -21,5 +27,3 @@ SELECT
     ELSE 'N/A'
   END RETURN @Status
 END
-
-GO

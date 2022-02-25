@@ -15,6 +15,7 @@ def compileDump():
         for directory in fileDirs:
             for path in Path(directory).glob('**/*.sql'):
                 with open(path) as infile:
+                    outfile.write('\n')
                     for line in infile:
                         print(line)
                         outfile.write(line)
