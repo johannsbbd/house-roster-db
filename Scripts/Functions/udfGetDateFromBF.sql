@@ -3,7 +3,6 @@ GO
 
 CREATE FUNCTION udfGetDateFromBF (
 @StartOfWeekDate varchar(20),
-@DaysBF int,
 @DayFlag int
 )
 
@@ -14,7 +13,7 @@ BEGIN
 
 	DECLARE @Output date
 
-	SELECT @Output = DATEADD(day, LOG(@DaysBF & @DayFlag, 2), @StartOfWeekDate);
+	SELECT @Output = DATEADD(day, LOG(@DayFlag, 2), @StartOfWeekDate);
   
 	RETURN @Output
 END
