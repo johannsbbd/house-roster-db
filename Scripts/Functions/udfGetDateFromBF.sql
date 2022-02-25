@@ -1,6 +1,3 @@
-USE HouseRoster
-GO
-
 CREATE FUNCTION udfGetDateFromBF (
 @StartOfWeekDate varchar(20),
 @DayFlag int
@@ -17,3 +14,4 @@ BEGIN
   
 	RETURN @Output
 END
+GO

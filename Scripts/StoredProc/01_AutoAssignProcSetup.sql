@@ -1,6 +1,3 @@
-USE HouseRoster;
-GO
-
 IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'AutoAssignTasks') BEGIN
 	DROP PROCEDURE AutoAssignTasks
 END
